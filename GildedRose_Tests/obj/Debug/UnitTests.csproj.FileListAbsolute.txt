@@ -1,0 +1,15 @@
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\obj\Debug\GildedRose_Tests.dll
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\GildedRose_Tests.dll
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\GildedRose_Tests.pdb
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\ApprovalTests.dll
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\ApprovalUtilities.dll
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\ApprovalUtilities.Net45.dll
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\GildedRose.exe
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\nunit.framework.dll
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\GildedRose.pdb
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\ApprovalTests.xml
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\ApprovalUtilities.xml
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\ApprovalUtilities.Net45.xml
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\bin\Debug\nunit.framework.xml
+C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose_Tests\obj\Debug\GildedRose_Tests.pdb
