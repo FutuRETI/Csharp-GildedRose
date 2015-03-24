@@ -40,7 +40,7 @@ necessita un aggiornamento del nostro sistema:
 
 Sentitevi liberi di fare ogni cambiamento che ritenete utile al metodo UpdateQuality e anche di 
 aggiungere nuovo codice. Ma attenzione che tutto deve continuare a funionare correttamente come
-sta facendo ora! Però, non potete modificare la classe Ites o le proprietà dei vari Item, questi
+sta facendo ora! Però, non potete modificare la classe Items o le proprietà dei vari Item, questi
 infatti sono stati sviluppati dal goblin che vedere lì nell'angolo che è super contrario e stra
 suscettibile all'idea di condividere del codice! Se proprio ne sentite il bisogno potete trasformare
 i metodi UpdateQuality e la proprietà Items in elementi statici, vi copriamo noi con il goblin

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 /**
- * Questa classe cotneien un emepio di un test che potrete utilizzare come "traccia"
+ * Questa classe contieiene un emepio di un test che potrete utilizzare come "traccia"
  * per l'implementazione dei vostri nuovi casi di test.
  * 
  * Come vedete il metodo di test (in questo caso chiamato foo) è suddiviso in tre parti distinte:
@@ -27,16 +27,58 @@ namespace GildedRose
 	public class GildedRoseTest
 	{
 		[TestMethod]
-		public void foo() {
+		public void testStandardProductDecreaseBy1PreSellIn() {
             // given
-			IList<Item> Items = new List<Item> { new Item{Name = "foo", SellIn = 0, Quality = 0} };
+			IList<Item> Items = new List<Item> { new Item{ Name = "foo", SellIn = 100, Quality = 10} };
 			GildedRose app = new GildedRose(Items);
 
             // when
 			app.UpdateQuality();
 
             // then
-			Assert.AreEqual("foo", Items[0].Name);
+			Assert.AreEqual(9, Items[0].Quality);
 		}
+
+        [TestMethod]
+        public void testStandardProductDecreaseBy2PostSellIn()
+        {
+            // given
+            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 10 } };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(8, Items[0].Quality);
+        }
+
+        [TestMethod]
+        public void testConjuredProductDecreaseBy2PreSellIn()
+        {
+            // given
+            IList<Item> Items = new List<Item> { new Item { Name = "Conjured", SellIn = 100, Quality = 10 } };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(8, Items[0].Quality);
+        }
+
+        [TestMethod]
+        public void testConjuredProductDecreaseBy4PostSellIn()
+        {
+            // given
+            IList<Item> Items = new List<Item> { new Item { Name = "Conjured", SellIn = 0, Quality = 10 } };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(6, Items[0].Quality);
+        }
 	}
 }
