@@ -17,21 +17,21 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
  **/
 namespace GildedRoseTests
 {
-	[TestClass]
-	[UseReporter(typeof(ApprovalTests.Reporters.DiffReporter))]
-	public class ApprovalTest
-	{
-		[TestMethod]
-		public void ThirtyDays()
-		{
-			StringBuilder fakeoutput = new StringBuilder();
-			Console.SetOut(new StringWriter(fakeoutput));
-			Console.SetIn(new StringReader("a\n"));
+    [TestClass]
+    [UseReporter(typeof(ApprovalTests.Reporters.DiffReporter))]
+    public class ApprovalTest
+    {
+        [TestMethod]
+        public void ThirtyDays()
+        {
+            StringBuilder fakeoutput = new StringBuilder();
+            Console.SetOut(new StringWriter(fakeoutput));
+            Console.SetIn(new StringReader("a\n"));
 
-			Program.Main(new string[] { });
-			String output = fakeoutput.ToString();
-			Approvals.Verify(output);
-		}
-	}
-	
+            Program.Main(new string[] { });
+            String output = fakeoutput.ToString();
+            Approvals.Verify(output);
+        }
+    }
+    
 }

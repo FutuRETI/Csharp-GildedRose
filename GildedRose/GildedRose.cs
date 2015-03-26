@@ -3,18 +3,18 @@ using System;
 
 namespace GildedRose
 {
-	public class GildedRose
-	{
-		IList<Item> Items;
-		public GildedRose(IList<Item> Items) 
-		{
-			this.Items = Items;
-		}
-		
-		public void UpdateQuality()
-		{
-			for (var i = 0; i < Items.Count; i++)
-			{
+    public class GildedRose
+    {
+        IList<Item> Items;
+        public GildedRose(IList<Item> Items) 
+        {
+            this.Items = Items;
+        }
+        
+        public void UpdateQuality()
+        {
+            for (var i = 0; i < Items.Count; i++)
+            {
                 // Aggiorna SellIn
                 if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
                 {
@@ -45,16 +45,16 @@ namespace GildedRose
                         Items[i].Quality = Math.Min(50, Items[i].Quality + 1);
 
                         if (Items[i].SellIn < 10)
-						{
+                        {
                             // Incrementa la seconda volta
                             Items[i].Quality = Math.Min(50, Items[i].Quality + 1);
-						}
-							
-						if (Items[i].SellIn < 5)
-						{
+                        }
+                            
+                        if (Items[i].SellIn < 5)
+                        {
                             // Incrementa la terza volta
                             Items[i].Quality = Math.Min(50, Items[i].Quality + 1);
-						}
+                        }
 
                         if (Items[i].SellIn < 0)
                         {
@@ -73,7 +73,7 @@ namespace GildedRose
                         }
                         break;
                 }
-			}
-		}	
-	}	
+            }
+        }    
+    }    
 }

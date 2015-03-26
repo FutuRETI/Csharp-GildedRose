@@ -92,7 +92,7 @@
         </source_file>
       </source_files>
     </module>
-    <module name="gildedrose_tests.dll" path="gildedrose_tests.dll" id="B6308BF40AABB2458BE8281A534C9D860E000000" block_coverage="100.00" line_coverage="100.00" blocks_covered="57" blocks_not_covered="0" lines_covered="32" lines_partially_covered="0" lines_not_covered="0">
+    <module name="gildedrose_tests.dll" path="gildedrose_tests.dll" id="B6308BF40AABB2458BE8281A534C9D860F000000" block_coverage="100.00" line_coverage="100.00" blocks_covered="57" blocks_not_covered="0" lines_covered="32" lines_partially_covered="0" lines_not_covered="0">
       <functions>
         <function id="8272" token="0x6000001" name="ThirtyDays()" type_name="ApprovalTest" block_coverage="100.00" line_coverage="100.00" blocks_covered="9" blocks_not_covered="0" lines_covered="8" lines_partially_covered="0" lines_not_covered="0">
           <ranges>

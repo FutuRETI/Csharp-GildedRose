@@ -23,21 +23,21 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
  **/
 namespace GildedRose
 {
-	[TestClass]
-	public class GildedRoseTest
-	{
-		[TestMethod]
-		public void testStandardProductDecreaseBy1PreSellIn() {
+    [TestClass]
+    public class GildedRoseTest
+    {
+        [TestMethod]
+        public void testStandardProductDecreaseBy1PreSellIn() {
             // given
-			IList<Item> Items = new List<Item> { new Item{ Name = "foo", SellIn = 100, Quality = 10} };
-			GildedRose app = new GildedRose(Items);
+            IList<Item> Items = new List<Item> { new Item{ Name = "foo", SellIn = 100, Quality = 10} };
+            GildedRose app = new GildedRose(Items);
 
             // when
-			app.UpdateQuality();
+            app.UpdateQuality();
 
             // then
-			Assert.AreEqual(9, Items[0].Quality);
-		}
+            Assert.AreEqual(9, Items[0].Quality);
+        }
 
         [TestMethod]
         public void testStandardProductDecreaseBy2PostSellIn()
@@ -80,5 +80,5 @@ namespace GildedRose
             // then
             Assert.AreEqual(6, Items[0].Quality);
         }
-	}
+    }
 }
