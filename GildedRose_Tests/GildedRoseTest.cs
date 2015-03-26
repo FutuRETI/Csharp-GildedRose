@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 /**
- * Questa classe contieiene un emepio di un test che potrete utilizzare come "traccia"
+ * Questa classe contieiene un esempio di un test che potrete utilizzare come "traccia"
  * per l'implementazione dei vostri nuovi casi di test.
  * 
  * Come vedete il metodo di test (in questo caso chiamato foo) è suddiviso in tre parti distinte:
