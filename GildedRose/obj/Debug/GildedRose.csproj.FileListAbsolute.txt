@@ -1,6 +1,0 @@
-c:\users\andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose\bin\Debug\GildedRose.exe.config
-c:\users\andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose\bin\Debug\GildedRose.exe
-c:\users\andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose\bin\Debug\GildedRose.pdb
-c:\users\andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose\obj\Debug\GildedRose.exe
-c:\users\andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose\obj\Debug\GildedRose.pdb
-C:\Users\Andrea\documents\visual studio 2013\Projects\GildedRose\GildedRose\obj\Debug\GildedRose.csprojResolveAssemblyReference.cache
