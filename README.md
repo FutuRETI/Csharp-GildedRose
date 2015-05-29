@@ -57,7 +57,7 @@ necessita un aggiornamento del nostro sistema:
   sua Quality non ha subito nessun cambiamento) guadagnao il 50%!!
 
 Sentitevi liberi di fare ogni cambiamento che ritenete utile al metodo UpdateQuality e anche di 
-aggiungere nuovo codice. Ma attenzione che tutto deve continuare a funionare correttamente come
+aggiungere nuovo codice. Ma attenzione che tutto deve continuare a funzionare correttamente come
 sta facendo ora! Però, non potete modificare la classe Items o le proprietà dei vari Item, questi
 infatti sono stati sviluppati dal goblin che vedete lì nell'angolo che è super contrario e stra
 suscettibile all'idea di condividere del codice! Se proprio ne sentite il bisogno potete trasformare
