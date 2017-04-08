@@ -31,7 +31,7 @@ namespace GildedRoseTests
 
             // when
             Program.Main(new string[] { });
-            String output = fakeoutput.ToString();
+            string output = fakeoutput.ToString();
 
             // then
             Approvals.Verify(output);
