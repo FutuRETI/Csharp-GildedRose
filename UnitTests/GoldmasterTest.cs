@@ -24,12 +24,16 @@ namespace GildedRoseTests
         [Test]
         public void GoldenMasterTest()
         {
+            // given
             StringBuilder fakeoutput = new StringBuilder();
             Console.SetOut(new StringWriter(fakeoutput));
             Console.SetIn(new StringReader("a\n"));
 
+            // when
             Program.Main(new string[] { });
             String output = fakeoutput.ToString();
+
+            // then
             Approvals.Verify(output);
         }
     }

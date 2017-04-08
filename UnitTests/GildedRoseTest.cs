@@ -27,7 +27,7 @@ namespace GildedRose
     {
         [TestCase("foo", 0, 0)]
         public void foo(string ItemName, int ItemSellIn, int ItemQuality) {
-            // givens
+            // given
             IList<Item> Items = new List<Item> { new Item { Name = ItemName, SellIn = ItemSellIn, Quality = ItemQuality } };
             GildedRose app = new GildedRose(Items);
 
