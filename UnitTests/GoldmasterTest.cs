@@ -2,9 +2,9 @@
 using System.IO;
 using System.Text;
 using GildedRose;
-using ApprovalTests;
+using NUnit.Framework;
 using ApprovalTests.Reporters;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ApprovalTests;
 
 /**
  * Questa classe contiene un esempio di un test Golden Master che potrete utilizzare
@@ -17,11 +17,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
  **/
 namespace GildedRoseTests
 {
-    [TestClass]
-    [UseReporter(typeof(ApprovalTests.Reporters.DiffReporter))]
-    public class ApprovalTest
+    [TestFixture]
+    [UseReporter(typeof(DiffReporter))]
+    public class GoldmasterTest
     {
-        [TestMethod]
+        [Test]
         public void GoldenMasterTest()
         {
             StringBuilder fakeoutput = new StringBuilder();

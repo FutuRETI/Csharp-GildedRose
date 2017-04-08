@@ -1,6 +1,5 @@
-using System;
+using NUnit.Framework;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 /**
  * Questa classe contieiene un esempio di un test che potrete utilizzare come "traccia"
@@ -23,16 +22,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
  **/
 namespace GildedRose
 {
-    [TestClass]
+    [TestFixture]
     public class GildedRoseTest
     {
-        [TestMethod]
-        public void foo() {
-            // given
-            string ItemName = "foo";
-            int ItemSellIn = 0;
-            int ItemQuality = 0;
-
+        [TestCase("foo", 0, 0)]
+        public void foo(string ItemName, int ItemSellIn, int ItemQuality) {
+            // givens
             IList<Item> Items = new List<Item> { new Item { Name = ItemName, SellIn = ItemSellIn, Quality = ItemQuality } };
             GildedRose app = new GildedRose(Items);
 
