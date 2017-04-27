@@ -18,15 +18,15 @@ Ma prima un'introduzione al nostro sistema:
 
 Molto semplice, vero? Beh, qui è dove le cose iniziano a diventare interessanti:
 
-Quando la data di scadenza (sell by date) è passata, la Quality degrada a velocità doppia.
+* Quando la data di scadenza (sell by date) è passata, la Quality degrada a velocità doppia.
 * La Quality di un prodotto non è mai negativa.
 * Il prodotto "Aged Brie", in realtà, incrementa la propria Quality man mano che invecchia
 * La Quality di un qualsiasi prodotto non è mai maggiore a 50.
 * Il prodotto "Sulfuras", essendo un oggetto leggendario, non ha nessuna data di scadenza e la
   sua Quality non decresce mai.
-* I "Backstage passes", come l'aged brie, aumenta la propria Quality mano a mano che ci si avvicina
-  alla data di SellIn; la sua Quality incrementa di 2 quando ci sono 10 o meno giorni mancanti
-  alla sua scadenza e incrementa di 3 quando mancano 5 o meno giorni alla scadenza. La Quality, però,
+* I "Backstage passes", come l'aged brie, aumentano la propria Quality mano a mano che ci si avvicina
+  alla data di SellIn; la loro Quality incrementa di 2 quando ci sono 10 o meno giorni mancanti
+  alla loro scadenza e incrementa di 3 quando mancano 5 o meno giorni alla scadenza. La Quality, però,
   precipita a 0 appena dopo il concerto (quindi superata la data di scadenza).
 
 Abbiamo appena formato un nuovo contratto di forniture per prodotti "conjured". Questo nuovo contratto
