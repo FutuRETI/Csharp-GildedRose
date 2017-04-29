@@ -21,7 +21,7 @@ namespace GildedRoseTests
     [UseReporter(typeof(DiffReporter))]
     public class GoldmasterTest
     {
-        [Test]
+        //[Test]
         public void GoldenMasterTest()
         {
             // given
