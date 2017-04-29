@@ -206,5 +206,37 @@ namespace GildedRose
             Assert.AreEqual(ItemSellIn, Items[0].SellIn);
             Assert.AreEqual(ItemQuality, Items[0].Quality);
         }
+
+        [TestCase("Conjured Mana Cake", 10, 10)]
+        [TestCase("Conjured Mana Cake", 1, 10)]
+        public void AggiornaConjured(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality - 2, Items[0].Quality);
+        }
+
+        [TestCase("Conjured Mana Cake", 0, 10)]
+        [TestCase("Conjured Mana Cake", -1, 10)]
+        public void AggiornaConjuredScaduto(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality - 4, Items[0].Quality);
+        }
     }
 }

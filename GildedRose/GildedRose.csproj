@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="ItemFactory.cs" />
     <Compile Include="Prodotti\Backstage.cs" />
+    <Compile Include="Prodotti\Conjured.cs" />
+    <Compile Include="Prodotti\GenericItem.cs" />
     <Compile Include="Prodotti\Sulfuras.cs" />
     <Compile Include="Prodotti\AgedBrie.cs" />
     <Compile Include="Prodotti\Item.cs" />

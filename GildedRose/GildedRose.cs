@@ -1,3 +1,4 @@
+using GildedRose.Prodotti;
 using System.Collections.Generic;
 
 namespace GildedRose
@@ -13,14 +14,13 @@ namespace GildedRose
         
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach(Item Item in Items)
             {
                 // Aggiorna la quality di tutti i prodotti
-                Items[i].UpdateQuality();
+                (Item as GenericItem).UpdateQuality();
 
                 // Aggiorna la sellin di tutti i prodotti
-                Items[i].UpdateSellIn();
-
+                (Item as GenericItem).UpdateSellIn();
             }
         }    
     }
