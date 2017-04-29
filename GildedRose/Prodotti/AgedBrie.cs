@@ -6,11 +6,9 @@ namespace GildedRose.Prodotti
     {
         public override void UpdateQuality()
         {
+            Quality += 1;
+
             if (SellIn <= 0)
-            {
-                Quality += 2;
-            }
-            else
             {
                 Quality += 1;
             }
