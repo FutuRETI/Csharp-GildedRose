@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RetailService.cs" />
     <Compile Include="ItemFactory.cs" />
     <Compile Include="Prodotti\Backstage.cs" />
     <Compile Include="Prodotti\Conjured.cs" />
