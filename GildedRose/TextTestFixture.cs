@@ -7,7 +7,7 @@ namespace GildedRose
     {
         public static void Main(string[] args)
         {
-            System.Console.WriteLine("OMGHAI!");
+            Console.WriteLine("OMGHAI!");
 
             IList<Item> Items = new List<Item>{
                 ItemFactory.CreaItem("+5 Dexterity Vest", 10, 20),
@@ -27,13 +27,13 @@ namespace GildedRose
             
             for (var i = 0; i < 31; i++)
             {
-                System.Console.WriteLine("-------- day " + i + " --------");
-                System.Console.WriteLine("name, sellIn, quality");
+                Console.WriteLine("-------- day " + i + " --------");
+                Console.WriteLine("name, sellIn, quality");
                 for (var j = 0; j < Items.Count; j++)
                 {
-                    System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                    Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
                 }
-                System.Console.WriteLine("");
+                Console.WriteLine("");
                 app.UpdateQuality();
             }
 
