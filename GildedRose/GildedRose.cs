@@ -7,11 +7,13 @@ namespace GildedRose
     {
         readonly IList<Item> Items;
         readonly RetailService Vendita;
+        readonly SupplyService Acquisto;
 
         public GildedRose(IList<Item> Items) 
         {
             this.Items = Items;
             Vendita = new RetailService(Items);
+            Acquisto = new SupplyService(Items);
         }
 
         public void UpdateQuality()
@@ -26,9 +28,15 @@ namespace GildedRose
             }
         }
 
-        public IList<Item> ServiClienti()
+        public void ServiClienti()
         {
-            return Vendita.GetProdottiVendutiOggi();
+            Vendita.GetProdottiVendutiOggi();
+        }
+
+        public void AcquistaForniture()
+        {
+            Acquisto.ProponiOggetti();
+            Acquisto.AcquistaRandom();
         }
     }
 }

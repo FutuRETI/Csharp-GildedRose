@@ -24,7 +24,7 @@ namespace GildedRose
 
             var app = new GildedRose(Items);
 
-            
+            // Ciclo sui giorni
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
@@ -34,6 +34,9 @@ namespace GildedRose
                     Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
                 }
                 Console.WriteLine("");
+
+                app.AcquistaForniture();
+                app.ServiClienti();
                 app.UpdateQuality();
             }
 
