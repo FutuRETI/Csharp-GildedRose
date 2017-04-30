@@ -11,3 +11,7 @@ TestResults
 packages
 .sonar
 packages.config
+**/*GoldenMasterTest*
+TestCoverage.xml
+TestResult.xml
+.sonarqube
