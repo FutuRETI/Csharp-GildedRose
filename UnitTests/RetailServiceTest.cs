@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using NSubstitute;
 
 /**
  * Questa classe contieiene un esempio di un test che potrete utilizzare come "traccia"
@@ -75,9 +76,9 @@ namespace GildedRose
         public void ProvaAComprareOggettoMancante()
         {
             // given
-            Item Prodotto = ItemFactory.CreaItem("Conjured Mana Cake", 0, 10);
+            Item Prodotto = ItemFactory.CreaItem("Prodotto Inesistente", 0, 10);
             IList<Item> Items = new List<Item> { Prodotto };
-            RetailService app = new RetailService(Items, new List<string> { "Prodotto Inesistente" }, 0 );
+            RetailService app = new RetailService(Items);
 
             // when
             IList<Item> OggettiVenduti = app.GetProdottiVendutiOggi();
