@@ -6,6 +6,7 @@ namespace GildedRose
 {
     public class SupplyService
     {
+        // Costanti usate per stabilire i limiti dei generatori di numeri casuali
         private static readonly int MIN_OGGETTI = 40;
         private static readonly int MAX_OGGETTI = 60;
         private static readonly int MIN_SELLIN = 10;
@@ -19,18 +20,32 @@ namespace GildedRose
         private IList<Item> Items;
         public IList<Item> OggettiProposti;
 
+        /// <summary>
+        /// Costruttore che costruisce un servizio Supply per l'acquisto di prodotti da fornitori.
+        /// </summary>
+        /// <param name="Items">La lista di elementi presenti nella locanda.</param>
         public SupplyService(IList<Item> Items)
         {
             this.Items = Items;
             Rand = new Random(new DateTime().Millisecond);
         }
 
+        /// <summary>
+        /// Metodo che restituisce il numero di oggetti offerti da un fornitore.
+        /// Il metodo usa una funzione random per creare un numero casuale di oggetti disponibili.
+        /// </summary>
+        /// <returns>Il numero di oggetti offerti dal fornitore per l'acquisto</returns>
         public virtual int GetNumeroOggetti()
         {
             int RandomVal = Rand.Next();
             return MIN_OGGETTI + (RandomVal % (MAX_OGGETTI - MIN_OGGETTI));
         }
 
+        /// <summary>
+        /// Metodo che crea una lista di prodotti offerti dal fornitore.
+        /// Questo metodo genera un numero casuale di elementi e aggiorna lo stato del servizio supply in modo da includere
+        /// tutti e soli gli oggetti offerti dal fornitore.
+        /// </summary>
         public void ProponiOggetti()
         {
             OggettiProposti = new List<Item>();
@@ -50,6 +65,10 @@ namespace GildedRose
             }
         }
 
+        /// <summary>
+        /// Metodo che permette di acquistare un prodotto dal fornitore.
+        /// </summary>
+        /// <param name="Prodotto">Il prodotto che si desidera acquistare.</param>
         public void CompraProdotto(Item Prodotto)
         {
             // Se il prodotto è realmente tra quelli disponibili, acquistalo
@@ -60,7 +79,12 @@ namespace GildedRose
                 Items.Add(Prodotto);
             }
         }
-
+        
+        /// <summary>
+        /// Metodo che, per tutti i prodotti offerti dal fornitore, decide in modo casuale se acquistare o meno
+        /// il prodotto.
+        /// </summary>
+        /// <returns>La lista degi prodotti acquistati.</returns>
         public virtual IList<Item> AcquistaRandom()
         {
             // Scorro tutti gli oggetti proposti e, in modo random, decido se comprarli o meno.

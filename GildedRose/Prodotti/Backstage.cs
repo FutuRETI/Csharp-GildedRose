@@ -4,6 +4,9 @@ namespace GildedRose.Prodotti
 {
     public class Backastage : GenericItem
     {
+        /// <summary>
+        /// Metodo che aggiorna la qualità dopo una giornata.
+        /// </summary>
         public override void UpdateQuality()
         {
             // Incrementa la quality

@@ -9,6 +9,7 @@ namespace GildedRose
         {
             Console.WriteLine("OMGHAI!");
 
+            // Crea un insieme di elementi già disponibili nella locanda.
             IList<Item> Items = new List<Item>{
                 ItemFactory.CreaItem("+5 Dexterity Vest", 10, 20, 23.5),
                 ItemFactory.CreaItem("Aged Brie", 2, 0, 12.0),
@@ -24,7 +25,7 @@ namespace GildedRose
 
             var app = new GildedRose(Items);
 
-            // Ciclo sui giorni
+            // Fai un ciclo di 31 giorni per simulare un mese di attività della locanda.
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
@@ -35,9 +36,9 @@ namespace GildedRose
                 }
                 Console.WriteLine("");
 
-                app.AcquistaForniture();
-                app.ServiClienti();
-                app.UpdateQuality();
+                app.AcquistaForniture();    // Riceve il fonritore e decidi se acquistare dei prodotti.
+                app.ServiClienti();         // Servi i clienti che entrano nella locanda durante la giornata di lavoro.
+                app.UpdateQuality();        // Al termine della giornata, aggiorna la qualità di tutti i prodotti rimasti in locanda.
 
                 Console.WriteLine("=> Cassa = " + app.Cassa);
             }

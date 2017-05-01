@@ -4,6 +4,9 @@ namespace GildedRose.Prodotti
 {
     public class AgedBrie : GenericItem
     {
+        /// <summary>
+        /// Metodo che aggiorna la qualità dopo una giornata.
+        /// </summary>
         public override void UpdateQuality()
         {
             Quality += 1;

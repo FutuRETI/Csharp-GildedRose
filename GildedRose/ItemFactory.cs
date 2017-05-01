@@ -6,6 +6,9 @@ namespace GildedRose
 {
     public static class ItemFactory
     {
+        /// <summary>
+        /// Lista contenente tutti i prodotti disponibili per essere aggiunti alla locanda.
+        /// </summary>
         public static readonly IList<string> NomeProdotti = new List<string>
         {
             "+5 Dexterity Vest",
@@ -16,12 +19,24 @@ namespace GildedRose
             "Conjured Mana Cake"
         };
 
+        /// <summary>
+        /// Restistuisce un nome in modo casuale tra quelli disponibili per essere aggiunti alal locanda.
+        /// </summary>
+        /// <param name="Rand">Il generatore di numeri Random.</param>
+        /// <returns>Il nome del prodotto casuale scelto.</returns>
         public static string GetNomeProdottoRandom(Random Rand)
         {
-            string ProdottoRichiesto = ItemFactory.NomeProdotti[Rand.Next(ItemFactory.NomeProdotti.Count)];
-            return ProdottoRichiesto;
+            return ItemFactory.NomeProdotti[Rand.Next(ItemFactory.NomeProdotti.Count)];
         }
 
+        /// <summary>
+        /// Metodo che crea un Item scegliendo la classe corretta in base al tipo di prodotto che si sta creando.
+        /// </summary>
+        /// <param name="Name">Il nome del prodotto da creare.</param>
+        /// <param name="SellIn">La SellIn del prodotto da creare.</param>
+        /// <param name="Quality">La qualità del prodotto da creare.</param>
+        /// <param name="Value">Il valore del prodotto da creare.</param>
+        /// <returns>Il prodotto creato.</returns>
         public static Item CreaItem(string Name, int SellIn, int Quality, double Value)
         {
             switch (Name)

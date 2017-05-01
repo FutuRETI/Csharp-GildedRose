@@ -10,6 +10,10 @@ namespace GildedRose
         readonly SupplyService Acquisto;
         public double Cassa { get; private set; }
 
+        /// <summary>
+        /// Costruttore per la classe GildedRose che gestisce l'intera locanda.
+        /// </summary>
+        /// <param name="Items">Lista di items presenti nella locanda all'avvio.</param>
         public GildedRose(IList<Item> Items) 
         {
             this.Items = Items;
@@ -18,7 +22,12 @@ namespace GildedRose
             Cassa = 10000.0;
         }
 
-        // Costruttore usato per i test, accetta due Mock al posto del RetailService e del SupplyService
+        /// <summary>
+        /// Costruttore usato per i test, accetta due Mock al posto del RetailService e del SupplyService.
+        /// </summary>
+        /// <param name="Items">Lista di items presenti nella locanda all'avvio.</param>
+        /// <param name="Retail">Servizio che gestisce la parte di vendita ai clienti</param>
+        /// <param name="Supply">Servizio che gestisce la parte di acquisto dei fornitori</param>
         public GildedRose(IList<Item> Items, RetailService Retail, SupplyService Supply)
         {
             this.Items = Items;
@@ -26,7 +35,11 @@ namespace GildedRose
             Acquisto = Supply;
             Cassa = 10000.0;
         }
-
+        
+        /// <summary>
+        /// Metodo che aggiornala qualità di ogni oggetto presente nella locanda.
+        /// Deve essere richiamato dopo ogni giorno.
+        /// </summary>
         public void UpdateQuality()
         {
             foreach(Item Item in Items)
@@ -39,6 +52,10 @@ namespace GildedRose
             }
         }
 
+        /// <summary>
+        /// Metodo che serve i clienti che si presentano nel negozio nell'arco di una giornata.
+        /// Recupera la lista dei prodotti venduti nel giorno e aggiorna lo stato della cassa.
+        /// </summary>
         public void ServiClienti()
         {
             IList<Item> ProdottiVenduti = Vendita.GetProdottiVendutiOggi();
@@ -49,6 +66,11 @@ namespace GildedRose
             }
         }
 
+        /// <summary>
+        /// Metodo che acquista i prodotti da un fornitore.
+        /// I prodotti sono acquistati in modo casuale al momento...
+        /// Recupera la lista dei prodotti che si desidera acquistare e aggiorna lo stato della cassa.
+        /// </summary>
         public void AcquistaForniture()
         {
             Acquisto.ProponiOggetti();

@@ -6,6 +6,7 @@ namespace GildedRose
 {
     public class RetailService
     {
+        // Costanti usate per stabilire i limiti dei generatori di numeri casuali
         private static readonly int MIN_CLIENTI = 5;
         private static readonly int MAX_CLIENTI = 10;
         private static readonly int MIN_OGGETTI = 2;
@@ -13,25 +14,44 @@ namespace GildedRose
 
         private Random Rand;
         private IList<Item> Items;
-
+        
+        /// <summary>
+        /// Costruttore che costruisce un servizio Retail per la vendita di prodotti ai clienti.
+        /// </summary>
+        /// <param name="Items">La lista di elementi presenti nella locanda.</param>
         public RetailService(IList<Item> Items)
         {
             this.Items = Items;
             Rand = new Random(new DateTime().Millisecond);
         }
 
+        /// <summary>
+        /// Metodo che restituisce il numero di clienti che entrano nella locanda in un giorno.
+        /// Il metodo usa una funzione random per creare un numero casuale di ingressi nella locanda.
+        /// </summary>
+        /// <returns>Il numero di clienti entrati nella locanda nella giornata in corso</returns>
         public virtual int GetNumeroClienti()
         {
             int RandomVal = Rand.Next();
             return MIN_CLIENTI + (RandomVal % (MAX_CLIENTI - MIN_CLIENTI));
         }
 
+        /// <summary>
+        /// Metodo che restituisce il numero di oggetti che un cliente entrato nella locanda decide di comprare.
+        /// Il metodo usa una funzione random per creare un numero casuale di oggetti da richiedere.
+        /// </summary>
+        /// <returns>Il numero di oggetti richiesto dal cliente</returns>
         public virtual int GetNumeroOggetti()
         {
             int RandomVal = Rand.Next();
             return MIN_OGGETTI + (RandomVal % (MAX_OGGETTI - MIN_OGGETTI));
         }
 
+        /// <summary>
+        /// Metodo che restituisce la lista di oggetti venduti nella giornata odierna.
+        /// Per ogni cliente entrato in locanda, la lista include tutti gli oggetti richiesti dal cliente e disponibili nella locanda.
+        /// </summary>
+        /// <returns>La lista di elementi richiesti dai clienti entrati nella locanda nella giornata odierna</returns>
         public virtual IList<Item> GetProdottiVendutiOggi()
         {
             IList<Item> ProdottiVenduti = new List<Item>();
