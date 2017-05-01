@@ -2,8 +2,21 @@
 
 namespace GildedRose.Prodotti
 {
+
     public class GenericItem : Item
     {
+        public double Value { get; set; }
+
+        public double GetPurchasePrice()
+        {
+            return Value * Quality;
+        }
+
+        public double GetOfferPrice()
+        {
+            return Value * Quality * 1.5;
+        }
+
         public virtual void UpdateQuality()
         {
             Quality -= 1;

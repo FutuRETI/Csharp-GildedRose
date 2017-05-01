@@ -8,12 +8,23 @@ namespace GildedRose
         readonly IList<Item> Items;
         readonly RetailService Vendita;
         readonly SupplyService Acquisto;
+        public double Cassa { get; private set; }
 
         public GildedRose(IList<Item> Items) 
         {
             this.Items = Items;
             Vendita = new RetailService(Items);
             Acquisto = new SupplyService(Items);
+            Cassa = 10000.0;
+        }
+
+        // Costruttore usato per i test, accetta due Mock al posto del RetailService e del SupplyService
+        public GildedRose(IList<Item> Items, RetailService Retail, SupplyService Supply)
+        {
+            this.Items = Items;
+            Vendita = Retail;
+            Acquisto = Supply;
+            Cassa = 10000.0;
         }
 
         public void UpdateQuality()
@@ -30,13 +41,23 @@ namespace GildedRose
 
         public void ServiClienti()
         {
-            Vendita.GetProdottiVendutiOggi();
+            IList<Item> ProdottiVenduti = Vendita.GetProdottiVendutiOggi();
+
+            foreach(GenericItem Prodotto in ProdottiVenduti)
+            {
+                Cassa += Prodotto.GetOfferPrice();
+            }
         }
 
         public void AcquistaForniture()
         {
             Acquisto.ProponiOggetti();
-            Acquisto.AcquistaRandom();
+            IList<Item> ProdottiAcquistati = Acquisto.AcquistaRandom();
+
+            foreach (GenericItem Prodotto in ProdottiAcquistati)
+            {
+                Cassa -= Prodotto.GetPurchasePrice();
+            }
         }
     }
 }

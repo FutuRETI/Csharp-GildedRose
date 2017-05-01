@@ -32,9 +32,9 @@ namespace GildedRose
             return MIN_OGGETTI + (RandomVal % (MAX_OGGETTI - MIN_OGGETTI));
         }
 
-        public List<Item> GetProdottiVendutiOggi()
+        public virtual IList<Item> GetProdottiVendutiOggi()
         {
-            List<Item> ProdottiVenduti = new List<Item>();
+            IList<Item> ProdottiVenduti = new List<Item>();
 
             // Ottieni un numero casuale che indichi quanti clienti sono entrati oggi nel negozio
             int NumClienti = GetNumeroClienti();

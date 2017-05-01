@@ -59,7 +59,7 @@ namespace GildedRose
         public void VendiUnOggetto()
         {
             // given
-            Item Prodotto = ItemFactory.CreaItem("Conjured Mana Cake", 0, 10);
+            Item Prodotto = ItemFactory.CreaItem("Conjured Mana Cake", 0, 10, 0.0);
             IList<Item> Items = new List<Item> { Prodotto };
             RetailService app = new RetailService(Items);
 
@@ -76,7 +76,7 @@ namespace GildedRose
         public void ProvaAComprareOggettoMancante()
         {
             // given
-            Item Prodotto = ItemFactory.CreaItem("Prodotto Inesistente", 0, 10);
+            Item Prodotto = ItemFactory.CreaItem("Prodotto Inesistente", 0, 10, 0.0);
             IList<Item> Items = new List<Item> { Prodotto };
             RetailService app = new RetailService(Items);
 

@@ -22,20 +22,21 @@ namespace GildedRose
             return ProdottoRichiesto;
         }
 
-        public static Item CreaItem(string Name, int SellIn, int Quality)
+        public static Item CreaItem(string Name, int SellIn, int Quality, double Value)
         {
             switch (Name)
             {
                 case "Aged Brie":
-                    return new AgedBrie { Name = Name, SellIn = SellIn, Quality = Quality };
+                    return new AgedBrie { Name = Name, SellIn = SellIn, Quality = Quality, Value = Value };
                 case "Sulfuras, Hand of Ragnaros":
-                    return new Sulfuras { Name = Name, SellIn = SellIn, Quality = Quality };
+                    // Il sulfuras ha la quality sempre impostata a 80, quindi ignora il valore passato e metti la costante 80.
+                    return new Sulfuras { Name = Name, SellIn = SellIn, Quality = 80, Value = Value };
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    return new Backastage { Name = Name, SellIn = SellIn, Quality = Quality };
+                    return new Backastage { Name = Name, SellIn = SellIn, Quality = Quality, Value = Value };
                 case "Conjured Mana Cake":
-                    return new Conjured { Name = Name, SellIn = SellIn, Quality = Quality };
+                    return new Conjured { Name = Name, SellIn = SellIn, Quality = Quality, Value = Value };
                 default:
-                    return new GenericItem { Name = Name, SellIn = SellIn, Quality = Quality };
+                    return new GenericItem { Name = Name, SellIn = SellIn, Quality = Quality, Value = Value };
             }
         }
     }

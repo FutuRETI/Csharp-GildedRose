@@ -29,7 +29,7 @@ namespace GildedRose
         [TestCase("Prodotto generico", 1, 10)]
         public void AggiornaProdottoGenerico(string ItemName, int ItemSellIn, int ItemQuality) {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -45,7 +45,7 @@ namespace GildedRose
         public void AggiornaProdottoScaduto(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -65,7 +65,7 @@ namespace GildedRose
         public void QualityMaiNegativa(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -81,7 +81,7 @@ namespace GildedRose
         public void AggiornaAgedBrie(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -97,7 +97,7 @@ namespace GildedRose
         public void AggiornaAgedBrieScaduto(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -114,7 +114,7 @@ namespace GildedRose
         public void QualityMaiMaggiore50(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -130,7 +130,7 @@ namespace GildedRose
         public void AggiornaBackstage(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -146,7 +146,7 @@ namespace GildedRose
         public void AggiornaBackstageMeno10(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -162,7 +162,7 @@ namespace GildedRose
         public void AggiornaBackstageMeno5(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -178,7 +178,7 @@ namespace GildedRose
         public void AggiornaBackstageScaduto(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -196,7 +196,7 @@ namespace GildedRose
         public void AggiornaSulfuras(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -204,7 +204,7 @@ namespace GildedRose
 
             // then
             Assert.AreEqual(ItemSellIn, Items[0].SellIn);
-            Assert.AreEqual(ItemQuality, Items[0].Quality);
+            Assert.AreEqual(80, Items[0].Quality);
         }
 
         [TestCase("Conjured Mana Cake", 10, 10)]
@@ -212,7 +212,7 @@ namespace GildedRose
         public void AggiornaConjured(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
@@ -228,7 +228,7 @@ namespace GildedRose
         public void AggiornaConjuredScaduto(string ItemName, int ItemSellIn, int ItemQuality)
         {
             // given
-            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality) };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
