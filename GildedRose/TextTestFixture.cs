@@ -21,11 +21,14 @@ namespace GildedRose
             };
         }
 
-        private static void GestisciGiornata(GildedRose app)
+        private static void GestisciGiornata(GildedRose app, bool Forniture = false)
         {
             app.StampaItems();
 
-            app.AcquistaForniture();    // Riceve il fonritore e decidi se acquistare dei prodotti.
+            if (Forniture)
+            {
+                app.AcquistaForniture();    // Riceve il fonritore e decidi se acquistare dei prodotti.
+            }
             app.ServiClienti();         // Servi i clienti che entrano nella locanda durante la giornata di lavoro.
             app.UpdateQuality();        // Al termine della giornata, aggiorna la qualità di tutti i prodotti rimasti in locanda.
 
@@ -44,7 +47,7 @@ namespace GildedRose
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
-                GestisciGiornata(app);
+                GestisciGiornata(app, (i % 3) == 0);
             }
 
         }
