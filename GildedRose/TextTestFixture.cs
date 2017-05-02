@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace GildedRose
 {
-    public class Program
+    public static class Program
     {
         private static IList<Item> GeneraItems()
         {
