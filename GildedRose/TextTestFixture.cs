@@ -5,12 +5,9 @@ namespace GildedRose
 {
     public class Program
     {
-        public static void Main(string[] args)
+        private static IList<Item> GeneraItems()
         {
-            Console.WriteLine("OMGHAI!");
-
-            // Crea un insieme di elementi già disponibili nella locanda.
-            IList<Item> Items = new List<Item>{
+            return new List<Item>{
                 ItemFactory.CreaItem("+5 Dexterity Vest", 10, 20, 23.5),
                 ItemFactory.CreaItem("Aged Brie", 2, 0, 12.0),
                 ItemFactory.CreaItem("Elixir of the Mongoose", 5, 7, 5.5),
@@ -22,25 +19,32 @@ namespace GildedRose
                 // this conjured item does not work properly yet
                 ItemFactory.CreaItem("Conjured Mana Cake", 3, 6, 11.6)
             };
+        }
 
+        private static void GestisciGiornata(GildedRose app)
+        {
+            app.StampaItems();
+
+            app.AcquistaForniture();    // Riceve il fonritore e decidi se acquistare dei prodotti.
+            app.ServiClienti();         // Servi i clienti che entrano nella locanda durante la giornata di lavoro.
+            app.UpdateQuality();        // Al termine della giornata, aggiorna la qualità di tutti i prodotti rimasti in locanda.
+
+            Console.WriteLine("=> Cassa = " + app.Cassa);
+        }
+
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("OMGHAI!");
+
+            // Crea un insieme di elementi già disponibili nella locanda.
+            IList<Item> Items = GeneraItems();
             var app = new GildedRose(Items);
 
             // Fai un ciclo di 31 giorni per simulare un mese di attività della locanda.
             for (var i = 0; i < 31; i++)
             {
                 Console.WriteLine("-------- day " + i + " --------");
-                Console.WriteLine("name, sellIn, quality");
-                for (var j = 0; j < Items.Count; j++)
-                {
-                    Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
-                }
-                Console.WriteLine("");
-
-                app.AcquistaForniture();    // Riceve il fonritore e decidi se acquistare dei prodotti.
-                app.ServiClienti();         // Servi i clienti che entrano nella locanda durante la giornata di lavoro.
-                app.UpdateQuality();        // Al termine della giornata, aggiorna la qualità di tutti i prodotti rimasti in locanda.
-
-                Console.WriteLine("=> Cassa = " + app.Cassa);
+                GestisciGiornata(app);
             }
 
         }

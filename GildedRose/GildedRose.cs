@@ -1,3 +1,4 @@
+using System;
 using GildedRose.Prodotti;
 using System.Collections.Generic;
 
@@ -80,6 +81,16 @@ namespace GildedRose
             {
                 Cassa -= Prodotto.GetPurchasePrice();
             }
+        }
+
+        public void StampaItems()
+        {
+            Console.WriteLine("name, sellIn, quality");
+            for (var j = 0; j < Items.Count; j++)
+            {
+                Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+            }
+            Console.WriteLine("");
         }
     }
 }
