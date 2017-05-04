@@ -37,8 +37,7 @@ namespace GildedRose
         /// <returns>Il numero di oggetti offerti dal fornitore per l'acquisto</returns>
         public virtual int GetNumeroOggetti()
         {
-            int RandomVal = Rand.Next();
-            return MIN_OGGETTI + (RandomVal % (MAX_OGGETTI - MIN_OGGETTI));
+            return Rand.Next(MIN_OGGETTI, MAX_OGGETTI);
         }
 
         /// <summary>
@@ -56,9 +55,9 @@ namespace GildedRose
             {
                 // Genera un oggetto a caso a aggiungilo alla lista degli oggetti della lista di acquisto
                 string Name = ItemFactory.GetNomeProdottoRandom(Rand);
-                int SellIn = MIN_SELLIN + (Rand.Next() % (MAX_SELLIN - MIN_SELLIN));
-                int Quality = MIN_QUALITY + (Rand.Next() % (MAX_QUALITY - MIN_QUALITY));
-                double Value = (MIN_VALUE * 100 + (Rand.Next() % (MAX_VALUE - MIN_VALUE) * 100)) / 100;
+                int SellIn = Rand.Next(MIN_SELLIN, MAX_SELLIN);
+                int Quality = Rand.Next(MIN_QUALITY, MAX_QUALITY);
+                double Value = (double) Rand.Next(MIN_VALUE * 100 , MAX_VALUE * 100) / 100;
 
                 OggettiProposti.Add(ItemFactory.CreaItem(Name, SellIn, Quality, Value));
                 NumOggetti--;

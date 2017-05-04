@@ -32,8 +32,7 @@ namespace GildedRose
         /// <returns>Il numero di clienti entrati nella locanda nella giornata in corso</returns>
         public virtual int GetNumeroClienti()
         {
-            int RandomVal = Rand.Next();
-            return MIN_CLIENTI + (RandomVal % (MAX_CLIENTI - MIN_CLIENTI));
+            return Rand.Next(MIN_CLIENTI, MAX_CLIENTI);
         }
 
         /// <summary>
@@ -43,8 +42,7 @@ namespace GildedRose
         /// <returns>Il numero di oggetti richiesto dal cliente</returns>
         public virtual int GetNumeroOggetti()
         {
-            int RandomVal = Rand.Next();
-            return MIN_OGGETTI + (RandomVal % (MAX_OGGETTI - MIN_OGGETTI));
+            return Rand.Next(MIN_OGGETTI, MAX_OGGETTI);
         }
 
         /// <summary>
