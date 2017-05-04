@@ -26,7 +26,7 @@ namespace GildedRose
         /// <returns>Il nome del prodotto casuale scelto.</returns>
         public static string GetNomeProdottoRandom(Random Rand)
         {
-            return ItemFactory.NomeProdotti[Rand.Next(ItemFactory.NomeProdotti.Count)];
+            return NomeProdotti[Rand.Next(NomeProdotti.Count)];
         }
 
         /// <summary>

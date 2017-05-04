@@ -9,6 +9,7 @@ namespace GildedRose
         readonly IList<Item> Items;
         readonly RetailService Vendita;
         readonly SupplyService Acquisto;
+
         public double Cassa { get; private set; }
 
         /// <summary>
@@ -61,9 +62,9 @@ namespace GildedRose
         {
             IList<Item> ProdottiVenduti = Vendita.GetProdottiVendutiOggi();
 
-            foreach(GenericItem Prodotto in ProdottiVenduti)
+            foreach(Item Prodotto in ProdottiVenduti)
             {
-                Cassa += Prodotto.GetOfferPrice();
+                Cassa += (Prodotto as GenericItem).GetOfferPrice();
             }
         }
 
@@ -77,18 +78,18 @@ namespace GildedRose
             Acquisto.ProponiOggetti();
             IList<Item> ProdottiAcquistati = Acquisto.AcquistaRandom();
 
-            foreach (GenericItem Prodotto in ProdottiAcquistati)
+            foreach (Item Prodotto in ProdottiAcquistati)
             {
-                Cassa -= Prodotto.GetPurchasePrice();
+                Cassa -= (Prodotto as GenericItem).GetPurchasePrice();
             }
         }
 
         public void StampaItems()
         {
             Console.WriteLine("name, sellIn, quality");
-            for (var j = 0; j < Items.Count; j++)
+            foreach (Item Prodotto in Items)
             {
-                Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                Console.WriteLine(Prodotto.Name + ", " + Prodotto.SellIn + ", " + Prodotto.Quality);
             }
             Console.WriteLine("");
         }
