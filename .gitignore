@@ -11,7 +11,11 @@ TestResults
 packages
 .sonar
 packages.config
+<<<<<<< HEAD
 .sonarqube
 TestCoverage.xml
 TestResult.xml
 **/*GoldenMasterTest*
+TestCoverage.xml
+TestResult.xml
+.sonarqube

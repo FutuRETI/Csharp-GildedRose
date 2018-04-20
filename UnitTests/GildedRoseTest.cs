@@ -25,17 +25,218 @@ namespace GildedRose
     [TestFixture]
     public class GildedRoseTest
     {
-        [TestCase("foo", 0, 0)]
-        public void foo(string ItemName, int ItemSellIn, int ItemQuality) {
+        [TestCase("Prodotto generico", 10, 10)]
+        [TestCase("Prodotto generico", 1, 10)]
+        public void AggiornaProdottoGenerico(string ItemName, int ItemSellIn, int ItemQuality) {
             // given
-            IList<Item> Items = new List<Item> { new Item { Name = ItemName, SellIn = ItemSellIn, Quality = ItemQuality } };
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
             GildedRose app = new GildedRose(Items);
 
             // when
             app.UpdateQuality();
 
             // then
-            Assert.AreEqual(ItemName, Items[0].Name);
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality - 1, Items[0].Quality);
+        }
+
+        [TestCase("Prodotto generico", 0, 10)]
+        [TestCase("Prodotto generico", -1, 10)]
+        public void AggiornaProdottoScaduto(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality - 2, Items[0].Quality);
+        }
+
+        [TestCase("Prodotto generico", 10, 0)]
+        [TestCase("Prodotto generico", 10, -1)]
+        [TestCase("Prodotto generico", 0, 0)]
+        [TestCase("Prodotto generico", 0, -1)]
+        [TestCase("Prodotto generico", -1, 0)]
+        [TestCase("Prodotto generico", -1, -1)]
+        public void QualityMaiNegativa(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+        }
+
+        [TestCase("Aged Brie", 10, 10)]
+        [TestCase("Aged Brie", 1, 10)]
+        public void AggiornaAgedBrie(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality + 1, Items[0].Quality);
+        }
+
+        [TestCase("Aged Brie", 0, 10)]
+        [TestCase("Aged Brie", -1, 10)]
+        public void AggiornaAgedBrieScaduto(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality + 2, Items[0].Quality);
+        }
+
+        [TestCase("Aged Brie", 10, 50)]
+        [TestCase("Aged Brie", 0, 50)]
+        [TestCase("Aged Brie", -1, 49)]
+        public void QualityMaiMaggiore50(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(50, Items[0].Quality);
+        }
+
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 15, 10)]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 15, 10)]
+        public void AggiornaBackstage(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality + 1, Items[0].Quality);
+        }
+
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 10, 10)]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 8, 10)]
+        public void AggiornaBackstageMeno10(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality + 2, Items[0].Quality);
+        }
+
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 5, 10)]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 2, 10)]
+        public void AggiornaBackstageMeno5(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality + 3, Items[0].Quality);
+        }
+
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", 0, 10)]
+        [TestCase("Backstage passes to a TAFKAL80ETC concert", -1, 10)]
+        public void AggiornaBackstageScaduto(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(0, Items[0].Quality);
+        }
+
+        [TestCase("Sulfuras, Hand of Ragnaros", 10, 10)]
+        [TestCase("Sulfuras, Hand of Ragnaros", -10, 10)]
+        [TestCase("Sulfuras, Hand of Ragnaros", 10, -10)]
+        [TestCase("Sulfuras, Hand of Ragnaros", -10, -10)]
+        public void AggiornaSulfuras(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn, Items[0].SellIn);
+            Assert.AreEqual(80, Items[0].Quality);
+        }
+
+        [TestCase("Conjured Mana Cake", 10, 10)]
+        [TestCase("Conjured Mana Cake", 1, 10)]
+        public void AggiornaConjured(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality - 2, Items[0].Quality);
+        }
+
+        [TestCase("Conjured Mana Cake", 0, 10)]
+        [TestCase("Conjured Mana Cake", -1, 10)]
+        public void AggiornaConjuredScaduto(string ItemName, int ItemSellIn, int ItemQuality)
+        {
+            // given
+            IList<Item> Items = new List<Item> { ItemFactory.CreaItem(ItemName, ItemSellIn, ItemQuality, 0.0) };
+            GildedRose app = new GildedRose(Items);
+
+            // when
+            app.UpdateQuality();
+
+            // then
+            Assert.AreEqual(ItemSellIn - 1, Items[0].SellIn);
+            Assert.AreEqual(ItemQuality - 4, Items[0].Quality);
         }
     }
 }
